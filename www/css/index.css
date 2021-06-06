@@ -1,0 +1,99 @@
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 12px;
+    height: 100vh;
+    margin: 0;
+    /*noinspection CssInvalidFunction*/
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    width: 100%;
+    background-color: #3b7ab9;
+}
+
+.title {
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: 4px;
+    font-size: 14px;
+    height: 18px;
+}
+
+.control {
+    margin-left: 3px;
+    margin-top: 5px;
+
+    padding: 5px 10px;
+
+    border-radius: 8px;
+    color: white;
+    background-color: #3b7ab9;
+    border: 0;
+}
+
+.control:active {
+    background-color: green;
+}
+
+#log {
+    font-family: monospace;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-top: 3px;
+    white-space: pre;
+}
+
+.stderr {
+    color: red;
+}
+
+.log-controls {
+    float: right;
+    position: relative;
+    top: -1px;
+}
+
+.log-control {
+    padding: 1px 3px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: white;
+}
+
+.autoscroll-active {
+    color: white;
+    background-color: green;
+    border: 1px solid lightgray;
+}
+
+.log-control:active {
+    background-color: lightgray;
+}
+
+.wrapper {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 5px;
+    color: white;
+}
+
+.scroll {
+    border-radius: 5px;
+    overflow: auto;
+    background: #fff;
+    color: black;
+}
+
+.scroll-top {
+    height: 66px
+}
+
+.scroll-bottom {
+    height: calc(100vh - 127px);
+    white-space: nowrap;
+}
