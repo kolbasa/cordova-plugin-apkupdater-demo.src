@@ -2,10 +2,10 @@
 
 ```bash
 # Clone this branch:
-git clone --depth 1 -b demo https://github.com/kolbasa/cordova-plugin-apkupdater-demo
+git clone https://github.com/kolbasa/cordova-plugin-apkupdater-demo.src
 
 # Open directory:
-cd cordova-plugin-apkupdater-demo
+cd cordova-plugin-apkupdater-demo.src
 
 # Install dependencies:
 npm install
