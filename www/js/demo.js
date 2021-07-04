@@ -1,27 +1,26 @@
 onDeviceReady(function () {
-    cordova.plugins.apkupdater.setObserver(
-        {
-            downloadProgress: function (nPercentage, nBytes, nBytesWritten, nChunks, nChunksWritten) {
-                console.log('Downloading ' + nChunksWritten + ' of ' + nChunks + ' (' + nPercentage + '%)');
-            },
-            unzipProgress: function (nPercentage) {
-                console.log('Unzipping: ' + nPercentage + '%');
-            },
-            event: function (sEvent) {
-                console.log(sEvent);
-            },
-            exception: function (sMessage, stack) {
-                console.error(sMessage);
-                if (stack != null) {
-                    console.error(stack);
-                }
-            }
+
+    ApkUpdater.onDownloadProgress(function (e) {
+        console.log('Downloading ' + e.chunksWritten + ' of ' + e.chunks + ' (' + e.progress + '%)');
+    });
+
+    ApkUpdater.onUnzipProgress(function (e) {
+        console.log('Unzipping: ' + e.progress + '%');
+    });
+
+    ApkUpdater.debug(function (e) {
+        if (e.stack == null) {
+            console.log(e.message);
+        } else {
+            console.error(e.message);
+            console.error(e.stack);
         }
-    );
+    });
+
 });
 
 addButtonClickListener('check', function () {
-    cordova.plugins.apkupdater.check(
+    ApkUpdater.check(
         'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/master/update/manifest.json',
         function (oResp) {
             console.log('\nDownloaded manifest file:\n' + JSON.stringify(oResp, ' ', 2) + '\n\n');
@@ -30,7 +29,7 @@ addButtonClickListener('check', function () {
 });
 
 addButtonClickListener('download', function () {
-    cordova.plugins.apkupdater.download(
+    ApkUpdater.download(
         function () {
             console.log('Update can be installed now.');
         },
@@ -41,7 +40,7 @@ addButtonClickListener('download', function () {
 });
 
 addButtonClickListener('backgroundDownload', function () {
-    cordova.plugins.apkupdater.backgroundDownload(
+    ApkUpdater.backgroundDownload(
         5000, // Mobile speed
         function () {
             console.log('Update can be installed now.');
@@ -53,7 +52,7 @@ addButtonClickListener('backgroundDownload', function () {
 });
 
 addButtonClickListener('install', function () {
-    cordova.plugins.apkupdater.install(
+    ApkUpdater.install(
         function (oResp) {
             //
         },
@@ -64,7 +63,7 @@ addButtonClickListener('install', function () {
 });
 
 addButtonClickListener('stop', function () {
-    cordova.plugins.apkupdater.stop(
+    ApkUpdater.stop(
         function (oResp) {
             //
         },
@@ -75,7 +74,7 @@ addButtonClickListener('stop', function () {
 });
 
 addButtonClickListener('reset', function () {
-    cordova.plugins.apkupdater.reset(
+    ApkUpdater.reset(
         function () {
             console.log('Reset successfully.');
         },
