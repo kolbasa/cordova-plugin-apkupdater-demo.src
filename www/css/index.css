@@ -90,10 +90,10 @@ body {
 }
 
 .scroll-top {
-    height: 66px
+    height: 97px
 }
 
 .scroll-bottom {
-    height: calc(100vh - 127px);
+    height: calc(100vh - 158px);
     white-space: nowrap;
 }

@@ -1,85 +1,80 @@
-onDeviceReady(function () {
+/**
+ * @param {string} message
+ * @param {object=} data
+ */
+function formatLog(message, data) {
+    console.log(message + (data == null ? '' : (':' + '\n' + JSON.stringify(data, ' ', 2))) + '\n');
+}
 
-    ApkUpdater.onDownloadProgress(function (e) {
-        console.log('Downloading ' + e.chunksWritten + ' of ' + e.chunks + ' (' + e.progress + '%)');
-    });
+/**
+ * @param {object} error
+ */
+function formatError(error) {
+    console.error(error.message + '\n' + error.stack + '\n');
+}
 
-    ApkUpdater.onUnzipProgress(function (e) {
-        console.log('Unzipping: ' + e.progress + '%');
-    });
-
-    ApkUpdater.debug(function (e) {
-        if (e.stack == null) {
-            console.log(e.message);
-        } else {
-            console.error(e.message);
-            console.error(e.stack);
-        }
-    });
-
+addButtonClickListener('getInstalledVersion', function () {
+    ApkUpdater.getInstalledVersion(
+        function (resp) {
+            formatLog('Currently installed version', resp);
+        },
+        formatError
+    );
 });
 
-addButtonClickListener('check', function () {
-    ApkUpdater.check(
+addButtonClickListener('http.get', function () {
+    cordova.plugin.http.sendRequest(
         'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/master/update/manifest.json',
-        function (oResp) {
-            console.log('\nDownloaded manifest file:\n' + JSON.stringify(oResp, ' ', 2) + '\n\n');
-        }
+        {
+            responseType: 'json', method: 'get'
+        },
+        function (resp) {
+            formatLog('Downloaded manifest file', resp.data);
+        },
+        formatError
     );
 });
 
 addButtonClickListener('download', function () {
     ApkUpdater.download(
-        function () {
-            console.log('Update can be installed now.');
+        'https://github.com/kolbasa/cordova-plugin-apkupdater-demo/raw/master/Demo.apk',
+        {
+            password: 'aDzEsCceP3BPO5jy',
+            onDownloadProgress: function (e) {
+                console.log('Downloading: ' + e.progress + '%');
+            },
+            onUnzipProgress: function (e) {
+                console.log('Unzipping: ' + e.progress + '%');
+            }
         },
-        function (oResp) {
-            console.error(oResp);
-        }
-    );
-});
-
-addButtonClickListener('backgroundDownload', function () {
-    ApkUpdater.backgroundDownload(
-        5000, // Mobile speed
-        function () {
-            console.log('Update can be installed now.');
+        function (resp) {
+            formatLog('Update can be installed now', resp);
         },
-        function (oResp) {
-            console.error(oResp);
-        }
-    );
-});
-
-addButtonClickListener('install', function () {
-    ApkUpdater.install(
-        function (oResp) {
-            //
-        },
-        function (oResp) {
-            console.error(oResp);
-        }
+        formatError
     );
 });
 
 addButtonClickListener('stop', function () {
-    ApkUpdater.stop(
-        function (oResp) {
-            //
+    ApkUpdater.stop(formatLog, formatError);
+});
+
+addButtonClickListener('getDownloadedUpdate', function () {
+    ApkUpdater.getDownloadedUpdate(
+        function (resp) {
+            formatLog('Cached update', resp);
         },
-        function (oResp) {
-            console.error(oResp);
-        }
+        formatError
     );
 });
 
+addButtonClickListener('install', function () {
+    ApkUpdater.install(formatLog, formatError);
+});
+
+addButtonClickListener('rootInstall', function () {
+    ApkUpdater.rootInstall(formatLog, formatError);
+});
+
 addButtonClickListener('reset', function () {
-    ApkUpdater.reset(
-        function () {
-            console.log('Reset successfully.');
-        },
-        function (oResp) {
-            console.error(oResp);
-        }
-    );
+    ApkUpdater.reset(formatLog, formatError);
 });

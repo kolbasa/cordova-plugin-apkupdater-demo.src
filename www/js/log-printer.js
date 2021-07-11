@@ -3,7 +3,11 @@ var log = [];
 var autoScroll = true;
 
 function normalizeLog(message) {
-    return message.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    if (typeof message === 'string') {
+        return message.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    } else {
+        return JSON.stringify(message);
+    }
 }
 
 var consoleLog = console.log;
