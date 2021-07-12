@@ -23,19 +23,21 @@ addButtonClickListener('getInstalledVersion', function () {
 });
 
 addButtonClickListener('http.get', function () {
+    console.log('Checking remote for latest update...');
     cordova.plugin.http.sendRequest(
         'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/refactoring/update/manifest.json',
         {
             responseType: 'json', method: 'get'
         },
         function (resp) {
-            formatLog('Downloaded manifest file', resp.data);
+            formatLog('Remote update', resp.data);
         },
         formatError
     );
 });
 
 addButtonClickListener('download', function () {
+    console.log('Starting download...');
     ApkUpdater.download(
         'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/refactoring/update/update.zip',
         {
