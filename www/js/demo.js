@@ -24,7 +24,7 @@ addButtonClickListener('getInstalledVersion', function () {
 
 addButtonClickListener('http.get', function () {
     cordova.plugin.http.sendRequest(
-        'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/master/update/manifest.json',
+        'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/refactoring/update/manifest.json',
         {
             responseType: 'json', method: 'get'
         },
@@ -37,7 +37,7 @@ addButtonClickListener('http.get', function () {
 
 addButtonClickListener('download', function () {
     ApkUpdater.download(
-        'https://github.com/kolbasa/cordova-plugin-apkupdater-demo/raw/master/Demo.apk',
+        'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/refactoring/update/update.zip',
         {
             password: 'aDzEsCceP3BPO5jy',
             onDownloadProgress: function (e) {
