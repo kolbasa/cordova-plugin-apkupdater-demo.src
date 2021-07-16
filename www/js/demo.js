@@ -80,3 +80,11 @@ addButtonClickListener('rootInstall', function () {
 addButtonClickListener('reset', function () {
     ApkUpdater.reset(formatLog, formatError);
 });
+
+addButtonClickListener('canRequestPackageInstalls', function () {
+    ApkUpdater.canRequestPackageInstalls(formatLog, formatError);
+});
+
+addButtonClickListener('openInstallSetting', function () {
+    ApkUpdater.openInstallSetting(formatLog, formatError);
+});
