@@ -41,7 +41,7 @@ addButtonClickListener('download', function () {
     ApkUpdater.download(
         'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/master/update/update.zip',
         {
-            password: 'aDzEsCceP3BPO5jy',
+            zipPassword: 'aDzEsCceP3BPO5jy',
             onDownloadProgress: function (e) {
                 console.log('Downloading: ' + e.progress + '%');
             },
