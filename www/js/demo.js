@@ -69,18 +69,6 @@ addButtonClickListener('getDownloadedUpdate', function () {
     );
 });
 
-addButtonClickListener('install', function () {
-    ApkUpdater.install(formatLog, formatError);
-});
-
-addButtonClickListener('rootInstall', function () {
-    ApkUpdater.rootInstall(formatLog, formatError);
-});
-
-addButtonClickListener('ownerInstall', function () {
-    ApkUpdater.ownerInstall(formatLog, formatError);
-});
-
 addButtonClickListener('reset', function () {
     ApkUpdater.reset(formatLog, formatError);
 });
@@ -93,8 +81,24 @@ addButtonClickListener('openInstallSetting', function () {
     ApkUpdater.openInstallSetting(formatLog, formatError);
 });
 
+addButtonClickListener('install', function () {
+    ApkUpdater.install(formatLog, formatError);
+});
+
+addButtonClickListener('requestRootAccess', function () {
+    ApkUpdater.requestRootAccess(formatLog, formatError);
+});
+
 addButtonClickListener('isDeviceRooted', function () {
     ApkUpdater.isDeviceRooted(formatLog, formatError);
+});
+
+addButtonClickListener('rootInstall', function () {
+    ApkUpdater.rootInstall(formatLog, formatError);
+});
+
+addButtonClickListener('ownerInstall', function () {
+    ApkUpdater.ownerInstall(formatLog, formatError);
 });
 
 addButtonClickListener('isDeviceOwner', function () {

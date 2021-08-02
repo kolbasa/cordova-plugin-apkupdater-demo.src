@@ -36,12 +36,16 @@ body {
     border: 0;
 }
 
-.control-red {
+.red-bg {
     background-color: darkred;
 }
 
-.control-green {
+.green-bg {
     background-color: darkgreen;
+}
+
+.magenta-bg {
+    background-color: darkmagenta;
 }
 
 .control:active {
