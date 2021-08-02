@@ -77,6 +77,10 @@ addButtonClickListener('rootInstall', function () {
     ApkUpdater.rootInstall(formatLog, formatError);
 });
 
+addButtonClickListener('ownerInstall', function () {
+    ApkUpdater.ownerInstall(formatLog, formatError);
+});
+
 addButtonClickListener('reset', function () {
     ApkUpdater.reset(formatLog, formatError);
 });
@@ -91,4 +95,8 @@ addButtonClickListener('openInstallSetting', function () {
 
 addButtonClickListener('isDeviceRooted', function () {
     ApkUpdater.isDeviceRooted(formatLog, formatError);
+});
+
+addButtonClickListener('isDeviceOwner', function () {
+    ApkUpdater.isDeviceOwner(formatLog, formatError);
 });
