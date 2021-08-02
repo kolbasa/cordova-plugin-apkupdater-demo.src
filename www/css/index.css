@@ -36,6 +36,14 @@ body {
     border: 0;
 }
 
+.control-red {
+    background-color: darkred;
+}
+
+.control-green {
+    background-color: darkgreen;
+}
+
 .control:active {
     background-color: green;
 }
@@ -90,10 +98,10 @@ body {
 }
 
 .scroll-top {
-    height: 128px
+    height: 190px
 }
 
 .scroll-bottom {
-    height: calc(100vh - 189px);
+    height: calc(100vh - 251px);
     white-space: nowrap;
 }

@@ -88,3 +88,7 @@ addButtonClickListener('canRequestPackageInstalls', function () {
 addButtonClickListener('openInstallSetting', function () {
     ApkUpdater.openInstallSetting(formatLog, formatError);
 });
+
+addButtonClickListener('isDeviceRooted', function () {
+    ApkUpdater.isDeviceRooted(formatLog, formatError);
+});
