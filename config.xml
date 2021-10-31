@@ -8,24 +8,16 @@
         Michael Jedich
     </author>
     <content src="index.html" />
-    <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="21"/>
-        <preference name="android-compileSdkVersion" value="30"/>
-        <preference name="android-targetSdkVersion" value="30"/>
+        <preference name="android-compileSdkVersion" value="29"/>
+        <preference name="android-targetSdkVersion" value="29"/>
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:testOnly="true"/>
+        </edit-config>
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity">
             <application android:exported="true"/>
         </edit-config>
-    </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
     </platform>
 </widget>
