@@ -22,20 +22,6 @@ addButtonClickListener('getInstalledVersion', function () {
     );
 });
 
-addButtonClickListener('http.get', function () {
-    console.log('Checking remote for latest update...');
-    cordova.plugin.http.sendRequest(
-        'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/master/update/update.json',
-        {
-            responseType: 'json', method: 'get'
-        },
-        function (resp) {
-            formatLog('Remote update', resp.data);
-        },
-        formatError
-    );
-});
-
 addButtonClickListener('download', function () {
     console.log('Starting download...');
     ApkUpdater.download(
