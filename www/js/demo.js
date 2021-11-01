@@ -72,7 +72,7 @@ addButtonClickListener('openInstallSetting', function () {
 });
 
 addButtonClickListener('install', function () {
-    ApkUpdater.install(formatLog, formatError);
+    ApkUpdater.install({}, formatLog, formatError);
 });
 
 addButtonClickListener('requestRootAccess', function () {
