@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Security-Policy"
@@ -16,9 +16,6 @@
             <div class="wrapper">
                 <div class="title">
                     <span>Controls:</span>
-                    <span class="log-controls">
-                        <button id="reload-app" class="log-control">Reload WebView</button>
-                    </span>
                 </div>
                 <div class="scroll scroll-top">
                     <button class="control" id="getInstalledVersion">getInstalledVersion()</button>
@@ -50,6 +47,7 @@
                 <div id="log" class="scroll scroll-bottom"></div>
             </div>
         </div>
+        <!--suppress HtmlUnknownTarget -->
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
         <script src="js/log-printer.js"></script>
