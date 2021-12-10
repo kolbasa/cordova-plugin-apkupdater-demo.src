@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="de.kolbasa.apkupdater.demo" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<widget id="de.kolbasa.apkupdater.demo" version="1.0.0" xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Apk Updater Demo</name>
     <description>
         A demo app for the cordova plugin 'de.kolbasa.apkupdater'
@@ -7,7 +8,7 @@
     <author email="michael.jedich@pm.me" href="https://github.com/kolbasa">
         Michael Jedich
     </author>
-    <content src="index.html" />
+    <content src="index.html"/>
     <platform name="android">
         <preference name="android-minSdkVersion" value="21"/>
         <preference name="android-compileSdkVersion" value="30"/>

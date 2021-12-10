@@ -27,7 +27,6 @@ addButtonClickListener('download', function () {
     ApkUpdater.download(
         'https://raw.githubusercontent.com/kolbasa/cordova-plugin-apkupdater-demo/master/update/update.zip',
         {
-            generateChecksum: false,
             zipPassword: 'aDzEsCceP3BPO5jy',
             onDownloadProgress: function (e) {
                 console.log('Downloading: ' + e.progress + '%');
@@ -49,9 +48,6 @@ addButtonClickListener('stop', function () {
 
 addButtonClickListener('getDownloadedUpdate', function () {
     ApkUpdater.getDownloadedUpdate(
-        {
-            generateChecksum: false
-        },
         function (resp) {
             formatLog('Cached update', resp);
         },
@@ -72,7 +68,7 @@ addButtonClickListener('openInstallSetting', function () {
 });
 
 addButtonClickListener('install', function () {
-    ApkUpdater.install({}, formatLog, formatError);
+    ApkUpdater.install(formatLog, formatError);
 });
 
 addButtonClickListener('requestRootAccess', function () {
