@@ -71,6 +71,10 @@ addButtonClickListener('install', function () {
     ApkUpdater.install(formatLog, formatError);
 });
 
+addButtonClickListener('installDebug', function () {
+    ApkUpdater.installDebug(formatLog, formatError);
+});
+
 addButtonClickListener('requestRootAccess', function () {
     ApkUpdater.requestRootAccess(formatLog, formatError);
 });
